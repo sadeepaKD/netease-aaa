@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetEase AAA — Centralized Network Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ======== NAV ======== -->
+    <nav id="topnav">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <span class="brand-icon">&#9678;</span>
+                <span class="brand-text">Net<span class="accent">Ease</span> AAA</span>
+            </a>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#team">Team</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======== HERO ======== -->
+    <header id="hero">
+        <canvas id="network-canvas"></canvas>
+        <div class="hero-content">
+            <p class="hero-tag">Final Year Project — 20/21 Batch</p>
+            <h1>Net<span class="accent">Ease</span> AAA</h1>
+            <p class="hero-sub">A Centralized Network Management System with<br>
+            <strong>Authentication, Authorization &amp; Accounting</strong><br>
+            for Small-Scale Organizations</p>
+            <div class="hero-badges">
+                <span class="badge">802.1X</span>
+                <span class="badge">RADIUS</span>
+                <span class="badge">VLAN</span>
+                <span class="badge">IPsec VPN</span>
+                <span class="badge">Real-time Monitoring</span>
+            </div>
+            <div class="hero-actions">
+                <a href="#about" class="btn btn-primary">Explore Project</a>
+                <a href="#architecture" class="btn btn-outline">View Architecture</a>
+            </div>
+        </div>
+        <div class="scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- ======== ABOUT ======== -->
+    <section id="about">
+        <div class="container">
+            <div class="section-label">// ABOUT THE PROJECT</div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Securing Campus Networks<br>the <span class="accent">Smart</span> Way</h2>
+                    <p>Small-scale organizations like university departments, SMEs, and school labs often rely on flat network architectures with shared credentials — leaving them vulnerable to unauthorized access and lacking visibility into who connects to their network.</p>
+                    <p><strong>NetEase AAA</strong> addresses this by providing a complete, deployable solution that brings enterprise-grade network authentication and monitoring to organizations that lack the budget for commercial solutions like Cisco ISE or Aruba ClearPass.</p>
+                    <p>Built around the <strong>AAA framework</strong> (Authentication, Authorization, and Accounting), the system uses industry-standard protocols including IEEE 802.1X, RADIUS, and IPsec VPN to provide centralized user management with per-user VLAN assignment, real-time switch monitoring, and a modern web-based dashboard — all running on low-cost infrastructure via Docker containers.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Docker Containers</div>
+                        <div class="stat-detail">Next.js + FreeRADIUS + MariaDB</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">Switch Ports</div>
+                        <div class="stat-detail">IEEE 802.1X protected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="2">0</div>
+                        <div class="stat-label">Protocols</div>
+                        <div class="stat-detail">RADIUS + IPsec VPN</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="1">0</div>
+                        <div class="stat-label">Dashboard</div>
+                        <div class="stat-detail">Real-time web interface</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== PROBLEM ======== -->
+    <section id="problem">
+        <div class="container">
+            <div class="section-label">// THE PROBLEM</div>
+            <h2 class="section-title">What Happens Without AAA?</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="24" cy="24" r="20"/>
+                            <path d="M24 14v12M24 30v2"/>
+                        </svg>
+                    </div>
+                    <h3>Shared Credentials</h3>
+                    <p>Everyone uses the same Wi-Fi password or plugs into any port. No individual accountability. If credentials leak, the entire network is compromised.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="6" y="6" width="36" height="36" rx="4"/>
+                            <path d="M6 18h36M18 18v24"/>
+                        </svg>
+                    </div>
+                    <h3>Flat Networks</h3>
+                    <p>All devices share one broadcast domain. A student's laptop sits on the same segment as the department's printers and servers — no segmentation or isolation.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M8 40 L24 8 L40 40 Z"/>
+                            <path d="M24 28v-8M24 34v-2"/>
+                        </svg>
+                    </div>
+                    <h3>Zero Visibility</h3>
+                    <p>Administrators have no idea who is connected, when they connected, or what they accessed. Troubleshooting and incident response become guesswork.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== ARCHITECTURE ======== -->
+    <section id="architecture">
+        <div class="container">
+            <div class="section-label">// SYSTEM ARCHITECTURE</div>
+            <h2 class="section-title">How It All Connects</h2>
+            <p class="section-desc">The system spans two physical locations — a cloud VPS and an on-premise lab — connected via an encrypted IPsec VPN tunnel. The RADIUS server authenticates users, while the web dashboard provides centralized management.</p>
+            <div class="arch-diagram">
+                <div class="arch-zone arch-cloud">
+                    <div class="zone-header">
+                        <span class="zone-tag">CLOUD — VPS</span>
+                        <span class="zone-ip">109.123.245.228</span>
+                    </div>
+                    <div class="arch-containers">
+                        <div class="arch-box box-app">
+                            <div class="box-icon">&#9635;</div>
+                            <div class="box-name">netease-aaa</div>
+                            <div class="box-tech">Next.js 16 Dashboard</div>
+                            <div class="box-port">:3001</div>
+                        </div>
+                        <div class="arch-box box-radius">
+                            <div class="box-icon">&#9737;</div>
+                            <div class="box-name">netease-radius</div>
+                            <div class="box-tech">FreeRADIUS 3.0</div>
+                            <div class="box-port">:1812/:1813</div>
+                        </div>
+                        <div class="arch-box box-db">
+                            <div class="box-icon">&#9707;</div>
+                            <div class="box-name">netease-db</div>
+                            <div class="box-tech">MariaDB 10</div>
+                            <div class="box-port">:3306</div>
+                        </div>
+                    </div>
+                    <div class="arch-docker-label">Docker Network 172.23.0.0/16</div>
+                </div>
+
+                <div class="arch-tunnel">
+                    <div class="tunnel-line"></div>
+                    <div class="tunnel-label">IPsec VPN Tunnel<br><span>StrongSwan IKEv2 + ESP</span></div>
+                    <div class="tunnel-line"></div>
+                </div>
+
+                <div class="arch-zone arch-onprem">
+                    <div class="zone-header">
+                        <span class="zone-tag">ON-PREMISE — LAB</span>
+                        <span class="zone-ip">10.0.10.0/24</span>
+                    </div>
+                    <div class="arch-devices">
+                        <div class="arch-box box-switch">
+                            <div class="box-icon">&#9783;</div>
+                            <div class="box-name">Cisco C1000-24FP</div>
+                            <div class="box-tech">Layer 2 PoE Switch</div>
+                            <div class="box-port">24 ports + 802.1X</div>
+                        </div>
+                        <div class="arch-endpoints">
+                            <div class="endpoint">
+                                <span class="ep-dot"></span>
+                                <span>Laptops</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="ep-dot"></span>
+                                <span>Printers</span>
+                            </div>
+                            <div class="endpoint">
+                                <span class="ep-dot"></span>
+                                <span>IP Phones</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FEATURES ======== -->
+    <section id="features">
+        <div class="container">
+            <div class="section-label">// KEY FEATURES</div>
+            <h2 class="section-title">What NetEase AAA Delivers</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-num">01</div>
+                    <h3>802.1X Port Authentication</h3>
+                    <p>Every switch port requires individual user credentials before granting network access. Unauthorized devices are blocked at the physical layer.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">02</div>
+                    <h3>Dynamic VLAN Assignment</h3>
+                    <p>Users are automatically placed into their assigned VLAN upon authentication. Staff, students, and guests get isolated network segments without manual port configuration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">03</div>
+                    <h3>Centralized User Management</h3>
+                    <p>Create, edit, enable/disable users from a single web dashboard. Assign roles and VLANs. Changes take effect immediately — no switch CLI needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">04</div>
+                    <h3>Real-time Switch Monitoring</h3>
+                    <p>Live dashboard showing port status, VLAN assignments, CPU/memory utilization, connected MAC addresses, and interface statistics for every switch port.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">05</div>
+                    <h3>Authentication Logging</h3>
+                    <p>Full audit trail via RADIUS accounting. Track who connected, when, from which port, session duration, and authentication success/failure history.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-num">06</div>
+                    <h3>Cloud-to-Lab VPN</h3>
+                    <p>Secure IPsec tunnel connects the cloud management plane to the on-premise switch. All RADIUS traffic and SSH monitoring flows through encrypted tunnel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== HOW IT WORKS ======== -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-label">// HOW IT WORKS</div>
+            <h2 class="section-title">The Authentication Flow</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h3>User Connects</h3>
+                        <p>A user plugs their laptop into a switch port. The port is in an unauthorized state — no traffic is allowed through except 802.1X EAPOL frames.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="packet-flow">
+                            <span class="node-label">Laptop</span>
+                            <span class="packet packet-eap">EAP</span>
+                            <span class="node-label">Switch Port</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h3>Credentials Prompted</h3>
+                        <p>The operating system's 802.1X supplicant prompts for username and password. The switch acts as an authenticator and forwards credentials to the RADIUS server.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="packet-flow">
+                            <span class="node-label">Switch</span>
+                            <span class="packet packet-radius">RADIUS</span>
+                            <span class="node-label">FreeRADIUS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h3>Database Lookup</h3>
+                        <p>FreeRADIUS queries the MariaDB database to verify the credentials. It checks the user's password, status (enabled/disabled), role, and VLAN assignment.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="packet-flow">
+                            <span class="node-label">RADIUS</span>
+                            <span class="packet packet-sql">SQL</span>
+                            <span class="node-label">MariaDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h3>Access Granted + VLAN</h3>
+                        <p>If credentials are valid, RADIUS sends an Access-Accept with VLAN attributes. The switch places the port into the assigned VLAN and the user gets full network access.</p>
+                    </div>
+                    <div class="step-visual">
+                        <div class="packet-flow">
+                            <span class="node-label">RADIUS</span>
+                            <span class="packet packet-accept">Accept</span>
+                            <span class="node-label">Switch → VLAN</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== TECH STACK ======== -->
+    <section id="tech-stack">
+        <div class="container">
+            <div class="section-label">// TECHNOLOGY STACK</div>
+            <h2 class="section-title">Built With</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-category">Frontend</div>
+                    <ul>
+                        <li>Next.js 16 (React)</li>
+                        <li>Tailwind CSS</li>
+                        <li>Recharts</li>
+                        <li>Lucide Icons</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-category">Backend</div>
+                    <ul>
+                        <li>Next.js API Routes</li>
+                        <li>Node.js SSH2 Client</li>
+                        <li>MariaDB Connector</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-category">Network</div>
+                    <ul>
+                        <li>FreeRADIUS 3.0</li>
+                        <li>IEEE 802.1X</li>
+                        <li>StrongSwan IPsec</li>
+                        <li>Cisco IOS</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-category">Infrastructure</div>
+                    <ul>
+                        <li>Docker & Compose</li>
+                        <li>Nginx Reverse Proxy</li>
+                        <li>Let's Encrypt SSL</li>
+                        <li>GitHub Actions CI/CD</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-category">Hardware</div>
+                    <ul>
+                        <li>Cisco C1000-24FP-4G-L</li>
+                        <li>Contabo VPS (Ubuntu)</li>
+                        <li>Check Point Gateway</li>
+                    </ul>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-category">Database</div>
+                    <ul>
+                        <li>MariaDB 10</li>
+                        <li>RADIUS Schema</li>
+                        <li>radcheck / radreply</li>
+                        <li>radacct / radpostauth</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== SCREENSHOTS ======== -->
+    <section id="screenshots">
+        <div class="container">
+            <div class="section-label">// SCREENSHOTS</div>
+            <h2 class="section-title">The Dashboard</h2>
+            <p class="section-desc">A modern NOC-style dark-themed interface for managing RADIUS users, monitoring switch ports in real time, and viewing authentication logs.</p>
+            <div class="screenshot-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <span>Dashboard Overview</span>
+                        <small>Stats, charts, switch port status</small>
+                    </div>
+                    <p class="screenshot-caption">Main dashboard with real-time statistics, authentication charts, and switch port monitoring</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <span>User Management</span>
+                        <small>Create, edit, enable/disable</small>
+                    </div>
+                    <p class="screenshot-caption">RADIUS user management with role-based access and VLAN assignment</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <span>Authentication Logs</span>
+                        <small>Success/failure history</small>
+                    </div>
+                    <p class="screenshot-caption">Post-authentication logs showing login attempts and session history</p>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder">
+                        <span>Login Page</span>
+                        <small>Admin authentication</small>
+                    </div>
+                    <p class="screenshot-caption">Secure admin login page for the management interface</p>
+                </div>
+            </div>
+            <p class="screenshot-note">Replace these placeholders with actual screenshots. Drop images into the <code>images/</code> folder and update the <code>src</code> attributes.</p>
+        </div>
+    </section>
+
+    <!-- ======== TEAM ======== -->
+    <section id="team">
+        <div class="container">
+            <div class="section-label">// THE TEAM</div>
+            <h2 class="section-title">Who Built This</h2>
+            <div class="team-section">
+                <div class="team-group">
+                    <h3 class="team-group-title">Supervisors</h3>
+                    <div class="team-cards">
+                        <div class="team-card">
+                            <div class="team-avatar">S1</div>
+                            <div class="team-info">
+                                <h4>[Supervisor Name]</h4>
+                                <p class="team-role">Main Supervisor</p>
+                                <p class="team-detail">Lecturer, Faculty of Technology<br>University of Sri Jayewardenepura</p>
+                                <p class="team-email">[email]@sjp.ac.lk</p>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">S2</div>
+                            <div class="team-info">
+                                <h4>[Co-Supervisor Name]</h4>
+                                <p class="team-role">Co-Supervisor</p>
+                                <p class="team-detail">Lecturer, Faculty of Technology<br>University of Sri Jayewardenepura</p>
+                                <p class="team-email">[email]@sjp.ac.lk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-group">
+                    <h3 class="team-group-title">Team Members</h3>
+                    <div class="team-cards">
+                        <div class="team-card">
+                            <div class="team-avatar">M1</div>
+                            <div class="team-info">
+                                <h4>[Member 1 Name]</h4>
+                                <p class="team-role">ICT/20/XXX</p>
+                                <p class="team-detail">Network Technology</p>
+                                <p class="team-email">ict20xxxxx@sjp.ac.lk</p>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">M2</div>
+                            <div class="team-info">
+                                <h4>[Member 2 Name]</h4>
+                                <p class="team-role">ICT/20/XXX</p>
+                                <p class="team-detail">Network Technology</p>
+                                <p class="team-email">ict20xxxxx@sjp.ac.lk</p>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <div class="team-avatar">M3</div>
+                            <div class="team-info">
+                                <h4>[Member 3 Name]</h4>
+                                <p class="team-role">ICT/20/XXX</p>
+                                <p class="team-detail">Network Technology</p>
+                                <p class="team-email">ict20xxxxx@sjp.ac.lk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="brand-icon">&#9678;</span>
+                    <span class="brand-text">Net<span class="accent">Ease</span> AAA</span>
+                    <p>Department of Information and Communication Technology<br>
+                    Faculty of Technology<br>
+                    University of Sri Jayewardenepura</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Project Links</h4>
+                    <ul>
+                        <li><a href="https://netease.buyjustnow.com" target="_blank">Live Dashboard</a></li>
+                        <li><a href="https://github.com/" target="_blank">GitHub Repository</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Project Proposal</a></li>
+                        <li><a href="#">Progress Report</a></li>
+                        <li><a href="#">Final Report</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>FOT/ICT/20-21 &mdash; Faculty of Technology, University of Sri Jayewardenepura</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
